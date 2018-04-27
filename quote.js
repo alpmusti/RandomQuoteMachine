@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded' , function(){
     const quoteButton = document.getElementById('quote-button');
     const quote = document.getElementById('quote');
     const title = document.getElementById('title');
+    const share = document.getElementById('share');
+
+    var quoteText = '';
     
     fetchQuote();
 
@@ -20,13 +23,15 @@ document.addEventListener('DOMContentLoaded' , function(){
             return r.json();
         })
         .then(function(data){
+            quoteText = strip(data[0].content) + data[0].title;            
+            share.setAttribute('href' , "https://twitter.com/intent/tweet?text=" + encodeURIComponent(quoteText.trim()));
             quote.innerHTML = data[0].content;
             title.innerHTML = data[0].title;
             quote.style.opacity = 1;
             title.style.opacity = 1;
         });
     }
-    
+
 
     function strip(html){
         var tmp = document.createElement("DIV");

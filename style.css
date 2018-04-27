@@ -13,12 +13,7 @@ blockquote{
     font-size: 32px;
     font-style: italic;
     transition: opacity .8s;
-}
-
-blockquote p:before{
-    padding: 5px;
-    content: "\0022";
-    font-size: 36px;
+    font-weight: 300;
 }
 
 li{
@@ -83,14 +78,27 @@ footer a{
     transition: opacity .8s;
 }
 
+#share i{
+    vertical-align: middle;
+}
+
+#share,
 #quote-button{
-    border: none;
-    padding: 12px 24px;
-    outline: 0;
-    cursor: pointer;
-    text-align: right;
-    background-color: #3498db;
     color: white;
+    padding: 12px;
+    border: none;
+    background: #3498db;
+    outline: 0;
+}
+#quote-button{
+    cursor: pointer;
     font-size: 16px;
+    padding: 12px 24px;    
+    text-align: right;
     border-radius: 50px;
+}
+
+#share:hover,
+#quote-button:hover{
+    opacity: .7;
 }
